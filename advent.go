@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Printf("\nThe number is %d", solutions.Day1())
-	// fmt.Printf("\nThe length is %d", solutions.Day2())
-
+	// fmt.Printf("\nThe number is %d", solutions.Day1())
+	fmt.Printf("\nPosition 0 is %d", solutions.Day2())
 }
