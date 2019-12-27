@@ -6,10 +6,6 @@ var originalIntCodes = []int{1, 0, 0, 3, 1, 1, 2, 3, 1, 3, 4, 3, 1, 5, 0, 3, 2, 
 var intCodes []int
 
 func Day2(target int) int {
-	return runTheLoops(target)
-}
-
-func runTheLoops(target int) int {
 	nounMin := 1
 	nounMax := 100
 	verbMin := 1
@@ -29,7 +25,7 @@ func runTheLoops(target int) int {
 			}
 		}
 		if ans == target {
-			ans = add( multiply(100, currentNoun), currentVerb)
+			ans = add(multiply(100, currentNoun), currentVerb)
 			break
 		}
 	}
@@ -49,7 +45,7 @@ func runPair(noun, verb int) int {
 		}
 		op := operation{opcode: intCodes[instructionPointer], noun: intCodes[instructionPointer+1], verb: intCodes[instructionPointer+2], param3: intCodes[instructionPointer+3]}
 		if op.opcode != 99 {
-			doThings(op)
+			doMath(op)
 		}
 		if op.opcode == 99 {
 			return intCodes[0]
@@ -58,7 +54,7 @@ func runPair(noun, verb int) int {
 	return intCodes[0]
 }
 
-func doThings(op operation) {
+func doMath(op operation) {
 	switch op.opcode {
 	case 1:
 		intCodes[op.param3] = add(intCodes[op.noun], intCodes[op.verb])
